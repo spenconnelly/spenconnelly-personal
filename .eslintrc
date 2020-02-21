@@ -27,7 +27,7 @@
     "rules": {
         "eqeqeq": "warn",
         "no-unused-vars": "warn",
-        "semi": ["error", "always"],
+        "semi": ["error", "never"],
         "space-before-function-paren": ["error", "never"],
         "camelcase": [1, {"properties": "never"}],
         "comma-dangle": "off",
