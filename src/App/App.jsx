@@ -8,12 +8,14 @@ import {
 
 import About from '../pages/About'
 import Home from '../pages/Home'
+import NavigationBar from '../Components/NavigationBar'
 import Portfolio from '../pages/Portfolio'
 import Resume from '../pages/Resume'
 
 function App() {
     return (
         <div className="App">
+            <NavigationBar />
             <Router>
                 <Switch>
                     <Route path="/aboutme" component={About} />
