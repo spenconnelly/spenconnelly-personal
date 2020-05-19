@@ -1,4 +1,6 @@
 import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { ThemeProvider } from '@material-ui/core/styles'
 import {
     BrowserRouter as Router,
     Switch,
@@ -6,16 +8,24 @@ import {
     Route,
 } from 'react-router-dom'
 
-import About from '../pages/About'
-import Home from '../pages/Home'
+import { useDarkMode } from '../themes'
+
+import About from '../Pages/About'
+import Home from '../Pages/Home'
 import NavigationBar from '../Components/NavigationBar'
-import Portfolio from '../pages/Portfolio'
-import Resume from '../pages/Resume'
+import Portfolio from '../Pages/Portfolio'
+import Resume from '../Pages/Resume'
 
 function App() {
+    const [theme, toggleDarkMode, isLight] = useDarkMode()
+
     return (
-        <div className="App">
-            <NavigationBar />
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <NavigationBar
+                isLight={isLight}
+                toggleDarkMode={toggleDarkMode}
+            />
             <Router>
                 <Switch>
                     <Route path="/aboutme" component={About} />
@@ -25,7 +35,7 @@ function App() {
                     <Redirect path="*" to="/home" />
                 </Switch>
             </Router>
-        </div>
+        </ThemeProvider>
     )
 }
 
