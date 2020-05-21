@@ -11,6 +11,7 @@ import {
 import { useDarkMode } from '../themes'
 
 import About from '../Pages/About'
+import Footer from '../Components/Footer'
 import Home from '../Pages/Home'
 import NavigationBar from '../Components/NavigationBar'
 import Portfolio from '../Pages/Portfolio'
@@ -35,6 +36,7 @@ function App() {
                     <Redirect path="*" to="/home" />
                 </Switch>
             </Router>
+            <Footer />
         </ThemeProvider>
     )
 }

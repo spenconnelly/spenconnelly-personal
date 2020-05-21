@@ -5,7 +5,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import {
     borderRadius,
     breakpoints,
-    spacing
+    spacing,
+    typography
 } from './constants'
 
 import darkPalette from './Dark'
@@ -25,7 +26,8 @@ const themeOptions = {
     breakpoints,
     props,
     spacing,
-    shape
+    shape,
+    typography
 }
 
 const lightThemeName = 'spenconnelly-light'
@@ -33,7 +35,8 @@ const lightThemeName = 'spenconnelly-light'
 const darkThemeName = 'spenconnelly-dark'
 
 export const useDarkMode = () => {
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true })
+
     const [ isLight, setTheme ] = useState(!prefersDarkMode)
 
     const toggleDarkMode = () => setTheme(!isLight)

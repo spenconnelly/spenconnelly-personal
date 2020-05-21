@@ -63,3 +63,94 @@ export const grey = {
     A400: greyA400,
     A700: greyA700
 }
+
+// FONT ATTRIBUTES
+const fontWeightLight = 300
+const fontWeightRegular = 400
+const fontWeightSemiBold = 600
+
+const mediumWidthBreakpoint = `@media (min-width: ${breakpoints.md}px)`
+export const typography = {
+    fontFamily: '\'Open Sans\', sans-serif',
+    h1: {
+        fontSize: '2.125rem',
+        lineHeight: 1.42,
+        fontWeight: fontWeightLight,
+        [mediumWidthBreakpoint]: {
+            fontSize: '3rem',
+            lineHeight: 1.33
+        }
+    },
+    h2: {
+        fontSize: '1.5rem',
+        lineHeight: 1.5,
+        fontWeight: fontWeightRegular,
+        [mediumWidthBreakpoint]: {
+            fontSize: '2.125rem',
+            lineHeight: 1.41
+        }
+    },
+    h3: {
+        fontSize: '1.25rem',
+        lineHeight: 1.4,
+        fontWeight: fontWeightRegular,
+        [mediumWidthBreakpoint]: {
+            fontSize: '1.5rem',
+            lineHeight: 1.5
+        }
+    },
+    h4: {
+        fontSize: '1.125rem',
+        lineHeight: 1.44,
+        fontWeight: fontWeightRegular,
+        [mediumWidthBreakpoint]: {
+            fontSize: '1.25rem',
+            lineHeight: 1.4
+        }
+    },
+    h5: {
+        fontSize: '1rem',
+        lineHeight: 1.5,
+        fontWeight: fontWeightRegular,
+        [mediumWidthBreakpoint]: {
+            fontSize: '1.125rem',
+            lineHeight: 1.44
+        }
+    },
+    h6: {
+        fontSize: '0.875rem',
+        lineHeight: 1.43,
+        fontWeight: fontWeightRegular,
+        [mediumWidthBreakpoint]: {
+            fontSize: '1rem',
+            lineHeight: 1.5
+        }
+    },
+    body1: {
+        fontSize: '1rem',
+        lineHeight: 1.5,
+        fontWeight: fontWeightRegular
+    },
+    body2: {
+        fontSize: '0.875rem',
+        lineHeight: 1.43,
+        fontWeight: fontWeightRegular
+    },
+    button: {
+        fontSize: '0.875rem',
+        lineHeight: 1.75,
+        letterSpacing: 1,
+        fontWeight: fontWeightSemiBold
+    },
+    overline: {
+        fontSize: '0.75rem',
+        lineHeight: 1.33,
+        letterSpacing: 1,
+        fontWeight: fontWeightSemiBold
+    },
+    caption: {
+        fontSize: '0.75rem',
+        lineHeight: 1.33,
+        fontWeight: fontWeightRegular
+    }
+}

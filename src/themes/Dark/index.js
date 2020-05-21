@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 import {
     error,
     grey,
@@ -11,7 +12,7 @@ import {
 const darkPalette = {
     type: 'dark',
     primary: {
-        main: secondaryBlue,
+        main: grey[600],
         contrastText: white
     },
     secondary: {
@@ -28,6 +29,9 @@ const darkPalette = {
     },
     warning: {
         main: warning
+    },
+    background: {
+        default: grey[900]
     },
     grey
 }
