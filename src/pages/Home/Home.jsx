@@ -1,10 +1,12 @@
 import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import ContentContainer from '../../Components/ContentContainer'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     root: {
         height: 2000,
-        color: theme.palette.primary.contrastText
+        marginTop: theme.spacing(24)
     }
 }))
 
@@ -13,12 +15,11 @@ function Home() {
 
     return (
         <div className={classes.root}>
-            Home Placeholder
-            a
-            b
-            b
-            b
-            b
+            <ContentContainer>
+                <Typography variant="h2">
+                    Home Placeholder
+                </Typography>
+            </ContentContainer>
         </div>
     )
 }

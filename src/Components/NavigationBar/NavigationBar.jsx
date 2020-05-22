@@ -14,7 +14,7 @@ import HideOnScroll from '../HideOnScroll'
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
-        height: 56,
+        height: theme.spacing(14),
         width: '100%',
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,

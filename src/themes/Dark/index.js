@@ -21,7 +21,7 @@ const darkPalette = {
         dark: white
     },
     text: {
-        primary: lightPrimaryText,
+        primary: white,
         secondary: lightSecondaryText
     },
     error: {
