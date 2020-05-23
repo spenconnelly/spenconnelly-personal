@@ -2,10 +2,9 @@
 import {
     error,
     grey,
-    lightPrimaryText,
     lightSecondaryText,
-    secondaryBlue,
     warning,
+    primaryRed,
     white
 } from '../constants'
 
@@ -16,9 +15,7 @@ const darkPalette = {
         contrastText: white
     },
     secondary: {
-        light: white,
-        main: secondaryBlue,
-        dark: white
+        main: primaryRed
     },
     text: {
         primary: white,

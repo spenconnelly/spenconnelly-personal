@@ -1,6 +1,11 @@
 import React from 'react'
 import MuiSlide from '@material-ui/core/Slide'
+import PropTypes from 'prop-types'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+
+HideOnScroll.propTypes = {
+    window: PropTypes.object
+}
 
 function HideOnScroll(props) {
     const {

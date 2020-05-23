@@ -8,43 +8,66 @@ import MuiTab from '@material-ui/core/Tab'
 import MuiTabs from '@material-ui/core/Tabs'
 import MuiToolbar from '@material-ui/core/Toolbar'
 import MuiTypography from '@material-ui/core/Typography'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+import PropTypes from 'prop-types'
 import HideOnScroll from '../HideOnScroll'
+import { withRouter } from 'react-router-dom'
+
+NavigationBar.propTypes = {
+    isLight: PropTypes.bool,
+    tabRoutes: PropTypes.array,
+    toggleDarkMode: PropTypes.func
+}
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
-        height: theme.spacing(14),
         width: '100%',
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
         justifyContent: 'space-between',
-        alignItems: 'center',
         paddingLeft: theme.spacing(3),
         paddingRight: theme.spacing(3),
         [theme.breakpoints.up('sm')]: {
-            paddingLeft: theme.spacing(3),
-            paddingRight: theme.spacing(3),
+            paddingLeft: theme.spacing(5),
+            paddingRight: theme.spacing(5),
         },
     },
     titleContainer: {
     },
     buttonsContainer: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    tabModifier: {
+        paddingTop: theme.spacing(5),
+        paddingBottom: theme.spacing(5)
+    },
+    tabIndicatorModifier: {
+        backgroundColor: theme.palette.secondary.main
     },
     iconButton: {
-        color: theme.palette.primary.contrastText
+        color: theme.palette.primary.contrastText,
+        marginLeft: theme.spacing(3),
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: theme.spacing(5)
+        }
     }
 }))
 
 function NavigationBar(props) {
     const {
+        history,
         isLight,
-        tabRoutes,
+        tabRoutes = [],
         toggleDarkMode
     } = props
+
     const classes = useStyles()
 
-    const isTop = useScrollTrigger({ threshold: 20 })
+    const onTabChange = (event, value) => {
+        history.push(value)
+        window.scrollTo(0, 0)
+    }
 
     return (
         <HideOnScroll>
@@ -56,15 +79,22 @@ function NavigationBar(props) {
                         </MuiTypography>
                     </div>
                     <div className={classes.buttonsContainer}>
-                        {/* <MuiTabs>
+                        <MuiTabs
+                            classes={{
+                                indicator: classes.tabIndicatorModifier
+                            }}
+                            onChange={onTabChange}
+                            value={history.location.pathname}
+                        >
                             {tabRoutes.map(({ label, value }, index) => (
                                 <MuiTab
+                                    className={classes.tabModifier}
                                     key={index}
                                     label={label}
                                     value={value}
                                 />
                             ))}
-                        </MuiTabs> */}
+                        </MuiTabs>
                         { isLight ? (
                             <MuiIconButton className={classes.iconButton} onClick={toggleDarkMode}>
                                 <MuiMoonIcon />
@@ -82,4 +112,4 @@ function NavigationBar(props) {
     )
 }
 
-export default NavigationBar
+export default withRouter(NavigationBar)

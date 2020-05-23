@@ -20,14 +20,34 @@ import Resume from '../Pages/Resume'
 function App() {
     const [theme, toggleDarkMode, isLight] = useDarkMode()
 
+    const tabs =  [
+        {
+            label: 'Home',
+            value: '/'
+        },
+        {
+            label: 'My Work',
+            value: '/portfolio'
+        },
+        {
+            label: 'Resume',
+            value: '/resume'
+        },
+        {
+            label: 'About Me',
+            value: '/aboutme'
+        }
+    ]
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <NavigationBar
-                isLight={isLight}
-                toggleDarkMode={toggleDarkMode}
-            />
             <Router>
+                <NavigationBar
+                    isLight={isLight}
+                    tabRoutes={tabs}
+                    toggleDarkMode={toggleDarkMode}
+                />
                 <Switch>
                     <Route path="/aboutme" component={About} />
                     <Route path="/portfolio" component={Portfolio} />
