@@ -52,8 +52,8 @@ function App() {
                     <Route path="/aboutme" component={About} />
                     <Route path="/portfolio" component={Portfolio} />
                     <Route path="/resume" component={Resume} />
-                    <Route path="/home" component={Home} />
-                    <Redirect path="*" to="/home" />
+                    <Route path="/" component={Home} />
+                    <Redirect path="*" to="/" />
                 </Switch>
             </Router>
             <Footer />
