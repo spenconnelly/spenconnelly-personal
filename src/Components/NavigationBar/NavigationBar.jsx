@@ -66,7 +66,7 @@ function NavigationBar(props) {
 
     const onTabChange = (event, value) => {
         history.push(value)
-        window.scrollTo(0, 0)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     return (
