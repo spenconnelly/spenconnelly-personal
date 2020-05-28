@@ -4,7 +4,7 @@ import {
     grey,
     lightSecondaryText,
     warning,
-    primaryRed,
+    secondaryRed,
     white
 } from '../constants'
 
@@ -15,7 +15,7 @@ const darkPalette = {
         contrastText: white
     },
     secondary: {
-        main: primaryRed
+        main: secondaryRed
     },
     text: {
         primary: white,

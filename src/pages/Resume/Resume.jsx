@@ -1,7 +1,9 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import ContentContainer from '../../Components/ContentContainer'
-import { Typography } from '@material-ui/core'
+import GetAppIcon from '@material-ui/icons/GetApp'
+import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 
 import PdfPlayer from '../../Components/PdfPlayer'
 
@@ -12,10 +14,22 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(24),
         marginBottom: theme.spacing(12)
     },
-    pdfContainer: {
+    contentContainer: {
         display: 'flex',
-        justifyContent: 'center',
-        width: '100%'
+        alignItems: 'center',
+        flexDirection: 'column'
+    },
+    buttonsContainer: {
+        display: 'flex',
+        width: '100%',
+        maxWidth: 612,
+        justifyContent: 'space-between',
+        marginBottom: theme.spacing(6)
+    },
+    pdfContainer: {
+        // display: 'flex',
+        // justifyContent: 'center',
+        // width: '100%'
     }
 }))
 
@@ -24,10 +38,24 @@ function Resume() {
 
     return (
         <div className={classes.root}>
-            <ContentContainer>
-                <Typography variant="h2">
-                    Resume Placeholder
-                </Typography>
+            <ContentContainer className={classes.contentContainer}>
+                <div className={classes.buttonsContainer}>
+                    <Button
+                        variant="filled"
+                        startIcon={<GetAppIcon />}
+                        href={pdfFile}
+                        download="Spencer_Connelly_Resume"
+                    >
+                        Download to PDF
+                    </Button>
+                    <Button
+                        variant="filled"
+                        startIcon={<OpenInNewIcon />}
+                        onClick={() => window.open(pdfFile)}
+                    >
+                        Export to new tab
+                    </Button>
+                </div>
                 <div className={classes.pdfContainer}>
                     <PdfPlayer
                         file={pdfFile}

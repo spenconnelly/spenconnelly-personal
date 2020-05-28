@@ -22,8 +22,9 @@ export const borderRadius = 4
 
 // PALETTE CONSTANTS
 
-export const primaryRed = '#FF3D3D'
-export const secondaryBlue = '#007EB6'
+export const primaryBlue = '#007EB6'
+export const primaryLightBlue = '#007eb680'
+export const secondaryRed = '#FF3D3D'
 export const white = '#FFFFFF'
 export const black = '#000000'
 export const lightPrimaryText = '#484848'
