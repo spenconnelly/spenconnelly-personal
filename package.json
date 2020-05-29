@@ -27,7 +27,6 @@
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
     "test-watch": "react-scripts test",
-    "eject": "react-scripts eject",
     "lint": "npx eslint --fix \"./src/**/*.{js,jsx}\""
   },
   "browserslist": {

@@ -10,7 +10,10 @@ import { withViewportCheck } from  '../../themes'
 
 PdfPlayer.propTypes = {
     file: PropTypes.string,
-    loading: PropTypes.node
+    loading: PropTypes.node,
+    isDesktop: PropTypes.bool,
+    isTablet: PropTypes.bool,
+    isMobile: PropTypes.bool
 }
 
 const useStyles = makeStyles(theme => ({
@@ -19,9 +22,6 @@ const useStyles = makeStyles(theme => ({
         borderRadius: 5,
         borderColor: theme.palette.primary.light,
         boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'
-    },
-    page: {
-        width: 500,
     }
 }))
 
