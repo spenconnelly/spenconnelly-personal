@@ -43,7 +43,11 @@ function PdfPlayer(props) {
                 loading={loading}
                 {...props}
             >
-                <Page width={(isDesktop && 900) || (isTablet && 565) || (isMobile && 275)} pageNumber={1} />
+                <Page
+                    loading={loading}
+                    pageNumber={1}
+                    width={(isDesktop && 900) || (isTablet && 565) || (isMobile && 275)}
+                />
             </Document>
         </div>
     )

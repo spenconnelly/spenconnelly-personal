@@ -2,6 +2,8 @@ import React from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import MuiIconButton from '@material-ui/core/IconButton'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import TwitterIcon from '@material-ui/icons/Twitter'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,9 +29,25 @@ function Footer() {
                 className={classes.iconButton}
                 target="_blank"
                 rel="noopener noreferrer"
+                href="https://twitter.com/SpencerConnelly"
+            >
+                <TwitterIcon />
+            </MuiIconButton>
+            <MuiIconButton
+                className={classes.iconButton}
+                target="_blank"
+                rel="noopener noreferrer"
                 href="https://github.com/spenconnelly"
             >
                 <GitHubIcon />
+            </MuiIconButton>
+            <MuiIconButton
+                className={classes.iconButton}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/spencer-connelly-297511128/"
+            >
+                <LinkedInIcon />
             </MuiIconButton>
         </div>
     )

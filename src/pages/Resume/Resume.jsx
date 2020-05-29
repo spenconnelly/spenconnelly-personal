@@ -4,6 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import ContentContainer from '../../Components/ContentContainer'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
+import Skeleton from '@material-ui/lab/Skeleton'
 
 import PdfPlayer from '../../Components/PdfPlayer'
 
@@ -12,6 +13,20 @@ const pdfFile = './resume.pdf'
 const useStyles = makeStyles(theme => ({
     root: {
         paddingTop: theme.spacing(22.5)
+    },
+    playerSkeleton: {
+        [theme.breakpoints.up('xs')]: {
+            width: 275,
+            height: 355
+        },
+        [theme.breakpoints.up('sm')]: {
+            width: 565,
+            height: 731
+        },
+        [theme.breakpoints.up('md')]: {
+            width: 900,
+            height: 1164
+        }
     },
     contentContainer: {
         display: 'flex',
@@ -30,6 +45,12 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(20)
     }
 }))
+
+const PdfPlayerSkeleton = () => {
+    const classes = useStyles()
+
+    return <Skeleton className={classes.playerSkeleton} variant="rect" />
+}
 
 function Resume() {
     const classes = useStyles()
@@ -58,6 +79,7 @@ function Resume() {
                     <PdfPlayer
                         file={pdfFile}
                         title="Spencer Connelly Resume"
+                        loading={<PdfPlayerSkeleton />}
                     />
                 </div>
             </ContentContainer>

@@ -15,6 +15,7 @@ import { withRouter } from 'react-router-dom'
 import { withViewportCheck } from '../../themes'
 
 NavigationBar.propTypes = {
+    isDesktop: PropTypes.bool,
     isLight: PropTypes.bool,
     tabRoutes: PropTypes.array,
     toggleDarkMode: PropTypes.func
@@ -67,8 +68,8 @@ function NavigationBar(props) {
     const classes = useStyles()
 
     const onTabChange = (event, value) => {
-        history.push(value)
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        history.push(value)
     }
 
     return (

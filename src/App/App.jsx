@@ -20,33 +20,33 @@ import Resume from '../Pages/Resume'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        minHeight: 'calc(100vh - 55px)',
+        minHeight: 'calc(100vh - 55px)', // 55px is height of footer
         position: 'relative'
     }
 }))
 
+const tabs =  [
+    {
+        label: 'Home',
+        value: '/'
+    },
+    {
+        label: 'My Work',
+        value: '/portfolio'
+    },
+    {
+        label: 'Resume',
+        value: '/resume'
+    },
+    {
+        label: 'About Me',
+        value: '/aboutme'
+    }
+]
+
 function App() {
     const classes = useStyles()
     const [theme, toggleDarkMode, isLight] = useDarkMode()
-
-    const tabs =  [
-        {
-            label: 'Home',
-            value: '/'
-        },
-        {
-            label: 'My Work',
-            value: '/portfolio'
-        },
-        {
-            label: 'Resume',
-            value: '/resume'
-        },
-        {
-            label: 'About Me',
-            value: '/aboutme'
-        }
-    ]
 
     return (
         <ThemeProvider theme={theme}>
