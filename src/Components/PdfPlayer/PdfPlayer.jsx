@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import useTheme from '@material-ui/core/styles/useTheme'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import withWidth from '@material-ui/core/withWidth'
 import {
     Document,
     Page
 } from 'react-pdf'
+
+import { withViewportCheck } from  '../../themes'
 
 PdfPlayer.propTypes = {
     file: PropTypes.string,
@@ -29,22 +28,13 @@ const useStyles = makeStyles(theme => ({
 function PdfPlayer(props) {
     const {
         file,
-        loading
+        loading,
+        isDesktop,
+        isTablet,
+        isMobile
     } = props
 
-    const [pdfWidth, setPdfWidth] = useState(null)
-
-    const theme = useTheme()
     const classes = useStyles()
-    const isMobile = useMediaQuery(theme.breakpoints.up('xs'))
-    const isTablet = useMediaQuery(theme.breakpoints.up('sm'))
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
-
-
-    useEffect(() => {
-        const width = (isDesktop && 900) || (isTablet && 565) || (isMobile && 350)
-        setPdfWidth(width)
-    }, [isMobile, isTablet, isDesktop])
 
     return (
         <div className={classes.root}>
@@ -53,10 +43,10 @@ function PdfPlayer(props) {
                 loading={loading}
                 {...props}
             >
-                <Page width={pdfWidth} pageNumber={1} />
+                <Page width={(isDesktop && 900) || (isTablet && 565) || (isMobile && 275)} pageNumber={1} />
             </Document>
         </div>
     )
 }
 
-export default withWidth()(PdfPlayer)
+export default withViewportCheck(PdfPlayer)

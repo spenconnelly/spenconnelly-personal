@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+import useTheme from '@material-ui/core/styles/useTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import {
@@ -48,4 +49,18 @@ export const useDarkMode = () => {
     }), [isLight])
 
     return [theme, toggleDarkMode, isLight]
+}
+
+/**
+ * Higher order component that adds boolean props
+ * to check for current viewport experience.
+ */
+export const withViewportCheck = Component => props => {
+    const theme = useTheme()
+
+    const isMobile = useMediaQuery(theme.breakpoints.only('xs'))
+    const isTablet = useMediaQuery(theme.breakpoints.only('sm'))
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
+    return <Component isMobile={isMobile} isTablet={isTablet} isDesktop={isDesktop} {...props} />
 }

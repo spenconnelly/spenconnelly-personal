@@ -12,6 +12,8 @@ import PropTypes from 'prop-types'
 import HideOnScroll from '../HideOnScroll'
 import { withRouter } from 'react-router-dom'
 
+import { withViewportCheck } from '../../themes'
+
 NavigationBar.propTypes = {
     isLight: PropTypes.bool,
     tabRoutes: PropTypes.array,
@@ -112,4 +114,4 @@ function NavigationBar(props) {
     )
 }
 
-export default withRouter(NavigationBar)
+export default withRouter(withViewportCheck(NavigationBar))

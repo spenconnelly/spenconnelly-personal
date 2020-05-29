@@ -11,7 +11,7 @@ const pdfFile = './resume.pdf'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        paddingTop: theme.spacing(20)
+        paddingTop: theme.spacing(22.5)
     },
     contentContainer: {
         display: 'flex',
@@ -23,12 +23,11 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         maxWidth: 612,
         justifyContent: 'space-between',
+        textAlign: 'center',
         marginBottom: theme.spacing(6)
     },
     pdfContainer: {
-        // display: 'flex',
-        // justifyContent: 'center',
-        // width: '100%'
+        marginBottom: theme.spacing(20)
     }
 }))
 

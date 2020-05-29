@@ -20,7 +20,8 @@ import Resume from '../Pages/Resume'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        minHeight: '93vh'
+        minHeight: 'calc(100vh - 55px)',
+        position: 'relative'
     }
 }))
 
