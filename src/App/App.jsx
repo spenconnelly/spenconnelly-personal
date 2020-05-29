@@ -1,5 +1,6 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 import { ThemeProvider } from '@material-ui/core/styles'
 import {
     BrowserRouter as Router,
@@ -17,7 +18,14 @@ import NavigationBar from '../Components/NavigationBar'
 import Portfolio from '../Pages/Portfolio'
 import Resume from '../Pages/Resume'
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        minHeight: '93vh'
+    }
+}))
+
 function App() {
+    const classes = useStyles()
     const [theme, toggleDarkMode, isLight] = useDarkMode()
 
     const tabs =  [
@@ -43,18 +51,20 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Router>
-                <NavigationBar
-                    isLight={isLight}
-                    tabRoutes={tabs}
-                    toggleDarkMode={toggleDarkMode}
-                />
-                <Switch>
-                    <Route path="/aboutme" component={About} />
-                    <Route path="/portfolio" component={Portfolio} />
-                    <Route path="/resume" component={Resume} />
-                    <Route path="/" component={Home} />
-                    <Redirect path="*" to="/" />
-                </Switch>
+                <div className={classes.root}>
+                    <NavigationBar
+                        isLight={isLight}
+                        tabRoutes={tabs}
+                        toggleDarkMode={toggleDarkMode}
+                    />
+                    <Switch>
+                        <Route path="/aboutme" component={About} />
+                        <Route path="/portfolio" component={Portfolio} />
+                        <Route path="/resume" component={Resume} />
+                        <Route path="/" component={Home} />
+                        <Redirect path="*" to="/" />
+                    </Switch>
+                </div>
             </Router>
             <Footer />
         </ThemeProvider>

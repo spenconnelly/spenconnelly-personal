@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import useTheme from '@material-ui/core/styles/useTheme'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import withWidth from '@material-ui/core/withWidth'
 import {
     Document,
     Page
 } from 'react-pdf'
-
-import { breakpoints } from '../../themes/constants'
 
 PdfPlayer.propTypes = {
     file: PropTypes.string,
@@ -26,40 +26,25 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const {
-    xs,
-    sm,
-    md,
-    lg,
-} = breakpoints
-
-function getMaxPdfWidth() {
-    if (window.innerWidth < xs) {
-        return 300
-    } else if (window.innerWidth < sm) {
-        return 400
-    } else if (window.innerWidth < md) {
-        return 500
-    } else if (window.innerWidth < lg) {
-        return 600
-    }
-}
-
 function PdfPlayer(props) {
     const {
         file,
         loading
     } = props
 
-    const classes = useStyles()
+    const [pdfWidth, setPdfWidth] = useState(null)
 
-    const [maxWidth, setMaxWidth] = useState(getMaxPdfWidth())
+    const theme = useTheme()
+    const classes = useStyles()
+    const isMobile = useMediaQuery(theme.breakpoints.up('xs'))
+    const isTablet = useMediaQuery(theme.breakpoints.up('sm'))
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
 
     useEffect(() => {
-        window.addEventListener('resize', setMaxWidth(getMaxPdfWidth()))
-
-        return () => window.addEventListener('resize', setMaxWidth(getMaxPdfWidth()))
-    })
+        const width = (isDesktop && 900) || (isTablet && 565) || (isMobile && 350)
+        setPdfWidth(width)
+    }, [isMobile, isTablet, isDesktop])
 
     return (
         <div className={classes.root}>
@@ -68,7 +53,7 @@ function PdfPlayer(props) {
                 loading={loading}
                 {...props}
             >
-                <Page width={maxWidth} pageNumber={1} />
+                <Page width={pdfWidth} pageNumber={1} />
             </Document>
         </div>
     )
