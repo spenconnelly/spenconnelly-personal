@@ -1,15 +1,15 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
+import React, { lazy, Suspense } from 'react'
+import MuiButton from '@material-ui/core/Button'
+import MuiIconButton from '@material-ui/core/IconButton'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import ContentContainer from '../../Components/ContentContainer'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import Skeleton from '@material-ui/lab/Skeleton'
 
-import PdfPlayer from '../../Components/PdfPlayer'
 import { withViewportCheck } from  '../../themes'
 
+const PdfPlayer = lazy(() => import('../../Components/PdfPlayer'))
 const pdfFile = './resume.pdf'
 
 const useStyles = makeStyles(theme => ({
@@ -45,7 +45,8 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(6)
     },
     iconButtonsContainer: {
-        display: 'flex'
+        display: 'flex',
+        marginBottom: theme.spacing(1)
     },
     pdfContainer: {
         marginBottom: theme.spacing(10),
@@ -69,7 +70,7 @@ function Resume(props) {
     } = props
 
     const classes = useStyles()
-    const width = Number((isDesktop && 900) || (isTablet && 565) || (isMobile && 275))
+    const width = Number((isDesktop && 900) || (isTablet && 565) || (isMobile && 275)) // Number to satisfy PropType in PdfPlayer
 
     const openInNewtab = () => window.open(pdfFile)
 
@@ -78,42 +79,44 @@ function Resume(props) {
             <ContentContainer className={classes.contentContainer}>
                 { isMobile ? (
                     <div className={classes.iconButtonsContainer}>
-                        <IconButton
+                        <MuiIconButton
                             href={pdfFile}
                             download="Spencer_Connelly_Resume"
                         >
                             <GetAppIcon />
-                        </IconButton>
-                        <IconButton
+                        </MuiIconButton>
+                        <MuiIconButton
                             onClick={openInNewtab}
                         >
                             <OpenInNewIcon />
-                        </IconButton>
+                        </MuiIconButton>
                     </div>
                 ) : (
                     <div className={classes.buttonsContainer}>
-                        <Button
+                        <MuiButton
                             startIcon={<GetAppIcon />}
                             href={pdfFile}
                             download="Spencer_Connelly_Resume"
                         >
                             Download to PDF
-                        </Button>
-                        <Button
+                        </MuiButton>
+                        <MuiButton
                             startIcon={<OpenInNewIcon />}
                             onClick={openInNewtab}
                         >
                             Export to new tab
-                        </Button>
+                        </MuiButton>
                     </div>
                 )}
                 <div className={classes.pdfContainer}>
-                    <PdfPlayer
-                        file={pdfFile}
-                        title="Spencer Connelly Resume"
-                        loading={<PdfPlayerSkeleton />}
-                        width={width}
-                    />
+                    <Suspense fallback={<PdfPlayerSkeleton />}>
+                        <PdfPlayer
+                            file={pdfFile}
+                            title="Spencer Connelly Resume"
+                            loading={<PdfPlayerSkeleton />}
+                            width={width}
+                        />
+                    </Suspense>
                 </div>
             </ContentContainer>
         </div>
