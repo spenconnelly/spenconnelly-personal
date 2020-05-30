@@ -6,14 +6,10 @@ import {
     Page
 } from 'react-pdf'
 
-import { withViewportCheck } from  '../../themes'
-
 PdfPlayer.propTypes = {
     file: PropTypes.string,
     loading: PropTypes.node,
-    isDesktop: PropTypes.bool,
-    isTablet: PropTypes.bool,
-    isMobile: PropTypes.bool
+    width: PropTypes.number
 }
 
 const useStyles = makeStyles(theme => ({
@@ -29,9 +25,7 @@ function PdfPlayer(props) {
     const {
         file,
         loading,
-        isDesktop,
-        isTablet,
-        isMobile
+        width
     } = props
 
     const classes = useStyles()
@@ -46,11 +40,11 @@ function PdfPlayer(props) {
                 <Page
                     loading={loading}
                     pageNumber={1}
-                    width={(isDesktop && 900) || (isTablet && 565) || (isMobile && 275)}
+                    width={width}
                 />
             </Document>
         </div>
     )
 }
 
-export default withViewportCheck(PdfPlayer)
+export default PdfPlayer
