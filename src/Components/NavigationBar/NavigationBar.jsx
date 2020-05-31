@@ -146,8 +146,8 @@ function NavigationBar(props) {
                                 >
                                     {tabRoutes.map(({ label, value }, index) => (
                                         <MuiTab
-                                            className={classes.tabModifier}
                                             key={index}
+                                            className={classes.tabModifier}
                                             label={label}
                                             value={value}
                                         />
@@ -184,8 +184,11 @@ function NavigationBar(props) {
                                             <MuiPaper className={classes.menuContainer}>
                                                 <MuiClickAwayListener onClickAway={handleClose}>
                                                     <MuiMenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                                                        { tabRoutes.map(({ label, value, icon }) => (
-                                                            <MuiMenuItem onClick={event => onTabChange(event, value, true)}>
+                                                        { tabRoutes.map(({ label, value, icon }, index) => (
+                                                            <MuiMenuItem
+                                                                key={index}
+                                                                onClick={event => onTabChange(event, value, true)}
+                                                            >
                                                                 <MuiListItemIcon>
                                                                     { React.cloneElement(icon, { fontSize: 'small' }) }
                                                                 </MuiListItemIcon>
