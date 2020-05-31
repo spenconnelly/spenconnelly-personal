@@ -10,7 +10,6 @@ import Skeleton from '@material-ui/lab/Skeleton'
 import { withViewportCheck } from  '../../themes'
 const PdfPlayer = lazy(() => import('../../Components/PdfPlayer'))
 
-
 const pdfFile = './resume.pdf'
 
 const useStyles = makeStyles(theme => ({

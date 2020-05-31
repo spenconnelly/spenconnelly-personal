@@ -33,22 +33,22 @@ const tabs =  [
     {
         label: 'Home',
         value: '/',
-        icon: <HomeIcon fontSize="small" />
+        icon: <HomeIcon />
     },
     {
         label: 'Portfolio',
         value: '/portfolio',
-        icon: <FolderIcon fontSize="small" />
+        icon: <FolderIcon />
     },
     {
         label: 'Resume',
         value: '/resume',
-        icon: <DescriptionIcon fontSize="small" />
+        icon: <DescriptionIcon />
     },
     {
         label: 'About Me',
         value: '/aboutme',
-        icon: <PersonIcon fontSize="small" />
+        icon: <PersonIcon />
     }
 ]
 

@@ -14,14 +14,14 @@ import MuiTab from '@material-ui/core/Tab'
 import MuiTabs from '@material-ui/core/Tabs'
 import MuiToolbar from '@material-ui/core/Toolbar'
 import MuiTypography from '@material-ui/core/Typography'
+import MuiGrow from '@material-ui/core/Grow'
+import MuiPopper from '@material-ui/core/Popper'
+import MuiMenuList from '@material-ui/core/MenuList'
+import MuiClickAwayListener from '@material-ui/core/ClickAwayListener'
+import MuiPaper from '@material-ui/core/Paper'
 import PropTypes from 'prop-types'
 import HideOnScroll from '../HideOnScroll'
 import { withRouter } from 'react-router-dom'
-import Grow from '@material-ui/core/Grow'
-import Popper from '@material-ui/core/Popper'
-import MenuList from '@material-ui/core/MenuList'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import Paper from '@material-ui/core/Paper'
 
 import { withViewportCheck } from '../../themes'
 
@@ -90,6 +90,7 @@ function NavigationBar(props) {
     const anchorRef = useRef(null)
 
     const menuIcon = open ? <MenuOpenIcon /> : <MenuIcon />
+    const themeToggleIcon = isLight ? <MuiMoonIcon /> : <MuiSunIcon />
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen)
@@ -152,15 +153,9 @@ function NavigationBar(props) {
                                         />
                                     ))}
                                 </MuiTabs>
-                                { isLight ? (
-                                    <MuiIconButton className={classes.toggleIconButton} onClick={toggleDarkMode}>
-                                        <MuiMoonIcon />
-                                    </MuiIconButton>
-                                ) : (
-                                    <MuiIconButton  className={classes.toggleIconButton} onClick={toggleDarkMode}>
-                                        <MuiSunIcon />
-                                    </MuiIconButton>
-                                )}
+                                <MuiIconButton className={classes.toggleIconButton} onClick={toggleDarkMode}>
+                                    { themeToggleIcon }
+                                </MuiIconButton>
                             </>
                         ) : (
                             <>
@@ -180,29 +175,35 @@ function NavigationBar(props) {
                                         {menuIcon}
                                     </MuiIconButton>
                                 )}
-                                <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                                <MuiPopper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                                     {({ TransitionProps, placement }) => (
-                                        <Grow
+                                        <MuiGrow
                                             {...TransitionProps}
                                             style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                                         >
-                                            <Paper className={classes.menuContainer}>
-                                                <ClickAwayListener onClickAway={handleClose}>
-                                                    <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
+                                            <MuiPaper className={classes.menuContainer}>
+                                                <MuiClickAwayListener onClickAway={handleClose}>
+                                                    <MuiMenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                                                         { tabRoutes.map(({ label, value, icon }) => (
                                                             <MuiMenuItem onClick={event => onTabChange(event, value, true)}>
                                                                 <MuiListItemIcon>
-                                                                    { icon }
+                                                                    { React.cloneElement(icon, { fontSize: 'small' }) }
                                                                 </MuiListItemIcon>
                                                                 <MuiListItemText primary={label} />
                                                             </MuiMenuItem>
                                                         ))}
-                                                    </MenuList>
-                                                </ClickAwayListener>
-                                            </Paper>
-                                        </Grow>
+                                                        <MuiMenuItem onClick={toggleDarkMode}>
+                                                            <MuiListItemIcon>
+                                                                { React.cloneElement(themeToggleIcon, { fontSize: 'small' }) }
+                                                            </MuiListItemIcon>
+                                                            <MuiListItemText primary={isLight ? 'Dark Mode' : 'Light Mode'} />
+                                                        </MuiMenuItem>
+                                                    </MuiMenuList>
+                                                </MuiClickAwayListener>
+                                            </MuiPaper>
+                                        </MuiGrow>
                                     )}
-                                </Popper>
+                                </MuiPopper>
                             </>
                         )}
                     </div>
