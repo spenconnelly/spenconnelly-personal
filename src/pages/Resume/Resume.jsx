@@ -8,8 +8,9 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import Skeleton from '@material-ui/lab/Skeleton'
 
 import { withViewportCheck } from  '../../themes'
-
 const PdfPlayer = lazy(() => import('../../Components/PdfPlayer'))
+
+
 const pdfFile = './resume.pdf'
 
 const useStyles = makeStyles(theme => ({
@@ -70,7 +71,7 @@ function Resume(props) {
     } = props
 
     const classes = useStyles()
-    const width = Number((isDesktop && 900) || (isTablet && 565) || (isMobile && 275)) // Number to satisfy PropType in PdfPlayer
+    const width = Number((isDesktop && 900) || (isTablet && 565) || (isMobile && 250)) // Number to satisfy PropType in PdfPlayer
 
     const openInNewtab = () => window.open(pdfFile)
 

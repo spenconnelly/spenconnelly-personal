@@ -1,4 +1,8 @@
 import React from 'react'
+import DescriptionIcon from '@material-ui/icons/Description'
+import HomeIcon from '@material-ui/icons/Home'
+import FolderIcon from '@material-ui/icons/Folder'
+import PersonIcon from '@material-ui/icons/Person'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -28,19 +32,23 @@ const useStyles = makeStyles(theme => ({
 const tabs =  [
     {
         label: 'Home',
-        value: '/'
+        value: '/',
+        icon: <HomeIcon fontSize="small" />
     },
     {
-        label: 'My Work',
-        value: '/portfolio'
+        label: 'Portfolio',
+        value: '/portfolio',
+        icon: <FolderIcon fontSize="small" />
     },
     {
         label: 'Resume',
-        value: '/resume'
+        value: '/resume',
+        icon: <DescriptionIcon fontSize="small" />
     },
     {
         label: 'About Me',
-        value: '/aboutme'
+        value: '/aboutme',
+        icon: <PersonIcon fontSize="small" />
     }
 ]
 
