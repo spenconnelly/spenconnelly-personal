@@ -8,7 +8,11 @@ describe('NavigationBar page', () => {
     let component
 
     beforeEach(() => {
-        wrapper = mount(<HideOnScroll />)
+        wrapper = mount(
+            <HideOnScroll>
+                <div>test</div>
+            </HideOnScroll>
+        )
     })
 
     it('should render properly', () => {

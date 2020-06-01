@@ -1,18 +1,18 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import ContentContainer from './ContentContainer'
+import Footer from './Footer'
 
 describe('NavigationBar page', () => {
     let wrapper
     let component
 
     beforeEach(() => {
-        wrapper = mount(<ContentContainer />)
+        wrapper = mount(<Footer />)
     })
 
     it('should render properly', () => {
-        component = wrapper.find(ContentContainer)
+        component = wrapper.find(Footer)
 
         expect(component.exists()).toBeTruthy()
     })
