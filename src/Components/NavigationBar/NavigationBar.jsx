@@ -67,10 +67,14 @@ const useStyles = makeStyles(theme => ({
         }
     },
     menuContainer: {
+        backgroundColor: theme.palette.primary.main,
         marginTop: theme.spacing(1),
         [theme.breakpoints.up('sm')]: {
             marginTop: theme.spacing(3.3),
         },
+    },
+    menuButtonModifier: {
+        color: theme.palette.primary.contrastText
     }
 }))
 
@@ -161,6 +165,7 @@ function NavigationBar(props) {
                             <>
                                 { isTablet ? (
                                     <MuiButton
+                                        className={classes.menuButtonModifier}
                                         ref={anchorRef}
                                         onClick={handleToggle}
                                         startIcon={menuIcon}
@@ -169,6 +174,7 @@ function NavigationBar(props) {
                                     </MuiButton>
                                 ) : (
                                     <MuiIconButton
+                                        className={classes.menuButtonModifier}
                                         ref={anchorRef}
                                         onClick={handleToggle}
                                     >
@@ -183,21 +189,21 @@ function NavigationBar(props) {
                                         >
                                             <MuiPaper className={classes.menuContainer}>
                                                 <MuiClickAwayListener onClickAway={handleClose}>
-                                                    <MuiMenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
+                                                    <MuiMenuList className={classes.menuButtonModifier} autoFocusItem={open} onKeyDown={handleListKeyDown}>
                                                         { tabRoutes.map(({ label, value, icon }, index) => (
                                                             <MuiMenuItem
                                                                 key={index}
                                                                 onClick={event => onTabChange(event, value, true)}
                                                             >
                                                                 <MuiListItemIcon>
-                                                                    { React.cloneElement(icon, { fontSize: 'small' }) }
+                                                                    { React.cloneElement(icon, { fontSize: 'small', className: classes.menuButtonModifier }) }
                                                                 </MuiListItemIcon>
                                                                 <MuiListItemText primary={label} />
                                                             </MuiMenuItem>
                                                         ))}
                                                         <MuiMenuItem onClick={toggleDarkMode}>
                                                             <MuiListItemIcon>
-                                                                { React.cloneElement(themeToggleIcon, { fontSize: 'small' }) }
+                                                                { React.cloneElement(themeToggleIcon, { fontSize: 'small', className: classes.menuButtonModifier }) }
                                                             </MuiListItemIcon>
                                                             <MuiListItemText primary={isLight ? 'Dark Mode' : 'Light Mode'} />
                                                         </MuiMenuItem>

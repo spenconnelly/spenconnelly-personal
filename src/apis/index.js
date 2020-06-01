@@ -10,18 +10,18 @@ export const useGithubRepos = () => {
     const [repos, setRepos] = useState([])
 
     useEffect(() => {
-        fetch(endpoints.repos)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setLoading(false)
-                    setRepos(result)
-                },
-                (error) => {
-                    setLoading(false)
-                    setError(error)
-                }
-            )
+        async function fetchRepos() {
+            try {
+                const response = await fetch(endpoints.repos)
+                const result = await response.json()
+                setLoading(false)
+                setRepos(result)
+            } catch (error) {
+                setLoading(false)
+                setError(error)
+            }
+        }
+        fetchRepos()
     }, [])
 
     return [repos, isLoading, error]
