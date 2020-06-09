@@ -24,17 +24,17 @@ function LanguageLabel({ language }) {
     const isJavaScript = language === 'JavaScript'
 
     return (
-            <MuiTypography
-                className={
-                    clsx(
-                        classes.root,
-                        isJavaScript && classes.javaScriptLabel
-                    )
-                }
-                variant="overline"
-            >
-                { language }
-            </MuiTypography>
+        <MuiTypography
+            className={
+                clsx(
+                    classes.root,
+                    isJavaScript && classes.javaScriptLabel
+                )
+            }
+            variant="overline"
+        >
+            { language }
+        </MuiTypography>
     )
 }
 
