@@ -24,6 +24,14 @@
         "jquery": true,
         "es6": true
     },
+    "globals": {
+        "describe": true,
+        "expect": true,
+        "it": true,
+        "beforeEach": true,
+        "afterEach": true,
+        "jest": true
+    },
     "rules": {
         "eqeqeq": "warn",
         "no-unused-vars": "warn",

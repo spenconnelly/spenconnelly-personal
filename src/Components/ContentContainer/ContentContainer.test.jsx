@@ -8,7 +8,7 @@ describe('NavigationBar page', () => {
     let component
 
     beforeEach(() => {
-        wrapper = mount(<ContentContainer />)
+        wrapper = mount(<ContentContainer>test</ContentContainer>)
     })
 
     it('should render properly', () => {

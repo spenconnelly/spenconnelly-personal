@@ -10,7 +10,7 @@ export const useGithubRepos = () => {
     const [repos, setRepos] = useState([])
 
     useEffect(() => {
-        async function fetchRepos() {
+        (async function fetchRepos() {
             try {
                 const response = await fetch(endpoints.repos)
                 const result = await response.json()
@@ -20,8 +20,7 @@ export const useGithubRepos = () => {
                 setLoading(false)
                 setError(error)
             }
-        }
-        fetchRepos()
+        })()
     }, [])
 
     return [repos, isLoading, error]
