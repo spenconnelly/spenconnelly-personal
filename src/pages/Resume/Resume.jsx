@@ -5,7 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import ContentContainer from '../../Components/ContentContainer'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
-import Skeleton from '@material-ui/lab/Skeleton'
+import MuiSkeleton from '@material-ui/lab/Skeleton'
 
 import { withViewportCheck } from  '../../themes'
 const PdfPlayer = lazy(() => import('../../Components/PdfPlayer'))
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 const PdfPlayerSkeleton = () => {
     const classes = useStyles()
 
-    return <Skeleton className={classes.playerSkeleton} variant="rect" />
+    return <MuiSkeleton className={classes.playerSkeleton} variant="rect" />
 }
 
 function Resume(props) {
