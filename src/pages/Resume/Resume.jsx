@@ -2,13 +2,13 @@ import React, { lazy, Suspense } from 'react'
 import MuiButton from '@material-ui/core/Button'
 import MuiIconButton from '@material-ui/core/IconButton'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import ContentContainer from '../../Components/ContentContainer'
+import ContentContainer from '../../components/ContentContainer'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import MuiSkeleton from '@material-ui/lab/Skeleton'
 
 import { withViewportCheck } from  '../../themes'
-const PdfPlayer = lazy(() => import('../../Components/PdfPlayer'))
+const PdfPlayer = lazy(() => import('../../components/PdfPlayer'))
 
 const pdfFile = './resume.pdf'
 

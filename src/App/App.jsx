@@ -15,12 +15,12 @@ import {
 
 import { useDarkMode } from '../themes'
 
-import About from '../Pages/About'
-import Footer from '../Components/Footer'
-import Home from '../Pages/Home'
-import NavigationBar from '../Components/NavigationBar'
-import Portfolio from '../Pages/Portfolio'
-import Resume from '../Pages/Resume'
+import About from '../pages/About'
+import Footer from '../components/Footer'
+import Home from '../pages/Home'
+import NavigationBar from '../components/NavigationBar'
+import Portfolio from '../pages/Portfolio'
+import Resume from '../pages/Resume'
 
 const useStyles = makeStyles(theme => ({
     root: {

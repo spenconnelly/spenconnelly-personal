@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, Suspense } from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import MenuIcon from '@material-ui/icons/Menu'
 import MenuOpenIcon from '@material-ui/icons/MenuOpen'
@@ -25,6 +25,8 @@ import { withRouter } from 'react-router-dom'
 
 import { withViewportCheck } from '../../themes'
 
+const MenuAvatar = React.lazy(() => import('../MenuAvatar'))
+
 NavigationBar.propTypes = {
     isDesktop: PropTypes.bool,
     isLight: PropTypes.bool,
@@ -47,6 +49,13 @@ const useStyles = makeStyles(theme => ({
         },
     },
     titleContainer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: 200,
+        [theme.breakpoints.up('md')]: {
+            width: 225
+        },
     },
     buttonsContainer: {
         display: 'flex',
@@ -134,6 +143,9 @@ function NavigationBar(props) {
             <MuiAppBar>
                 <MuiToolbar className={classes.root}>
                     <div className={classes.titleContainer}>
+                        <Suspense fallback={<div />}>
+                            <MenuAvatar />
+                        </Suspense>
                         <MuiTypography color={classes.titleTypography} variant="h4">
                             Spencer Connelly
                         </MuiTypography>

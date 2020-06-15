@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import ContentContainer from '../../Components/ContentContainer'
+import ContentContainer from '../../components/ContentContainer'
 import MuiBox from '@material-ui/core/Box'
 import MuiTypography from '@material-ui/core/Typography'
 import MuiZoom from '@material-ui/core/Zoom'
@@ -8,7 +8,7 @@ import MuiSkeleton from '@material-ui/lab/Skeleton'
 
 import { useGithubRepos } from '../../apis'
 
-const RepoCard = React.lazy(() => import('../../Components/RepoCard'))
+const RepoCard = React.lazy(() => import('../../components/RepoCard'))
 
 const useStyles = makeStyles(theme => ({
     root: {
