@@ -51,6 +51,7 @@ function About() {
         <div className={classes.root}>
             <div className={classes.imageContainer}>
                 <img
+                    alt="Spencer-Wideshot"
                     className={classes.imageModifier}
                     src={faceshot}
                 />
