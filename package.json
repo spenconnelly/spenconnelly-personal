@@ -1,5 +1,6 @@
 {
   "name": "spenconnelly-personal",
+  "homepage": "http://spenconnelly.github.io/spenconnelly-personal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-plugin-jest": "^23.7.0",
+    "gh-pages": "^3.0.0",
     "husky": "^4.2.3",
     "react-test-renderer": "^16.12.0"
   },
@@ -29,7 +31,9 @@
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
     "test-watch": "react-scripts test",
-    "lint": "npx eslint --fix \"./src/**/*.{js,jsx}\""
+    "lint": "npx eslint --fix \"./src/**/*.{js,jsx}\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
