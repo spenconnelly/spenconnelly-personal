@@ -74,20 +74,21 @@ function About() {
                                 <CallIcon />
                             </MuiIconButton>
                         }
-                        label={"(908) 674 - 0516"}
+                        label="(908) 674 - 0516"
                         labelPlacement="end"
                     />
                     <MuiFormControlLabel
                         control={
                             <a target="_top"
                                 rel="noopener noreferrer"
-                                href="mailto:spenconnelly@gmail.com">
+                                href="mailto:spenconnelly@gmail.com"
+                            >
                                 <MuiIconButton color="primary">
                                     <EmailIcon />
                                 </MuiIconButton>
                             </a>
                         }
-                        label={"spenconnelly@gmail.com"}
+                        label="spenconnelly@gmail.com"
                         labelPlacement="end"
                     />
                 </div>
