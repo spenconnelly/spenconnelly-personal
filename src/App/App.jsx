@@ -36,7 +36,7 @@ const tabs =  [
         icon: <HomeIcon />
     },
     {
-        label: 'Portfolio',
+        label: 'Projects',
         value: '/portfolio',
         icon: <FolderIcon />
     },
