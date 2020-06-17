@@ -85,6 +85,7 @@ function Home() {
                                     <LanguageLabel language="Java" />
                                     <LanguageLabel language="Python" />
                                     <LanguageLabel language="Springboot" />
+                                    <LanguageLabel language="Apollo" />
                                 </div>
                             </MuiGrow>
                         </MuiPaper>

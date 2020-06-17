@@ -14,7 +14,8 @@ LanguageLabel.propTypes = {
         'SQL',
         'Java',
         'Python',
-        'Springboot'
+        'Springboot',
+        'Apollo'
     ])
 }
 
@@ -60,6 +61,10 @@ const useStyles = makeStyles(theme => ({
     springbootLabel: {
         backgroundColor: '#05fa39',
         color: 'black'
+    },
+    apolloLabel: {
+        backgroundColor: 'purple',
+        color: 'black'
     }
 }))
 
@@ -74,6 +79,7 @@ function LanguageLabel({ language }) {
     const isJava = language === 'Java'
     const isPython = language === 'Python'
     const isSpringBoot = language === 'Springboot'
+    const isApollo = language === 'Apollo'
 
     return (
         <MuiTypography
@@ -89,7 +95,8 @@ function LanguageLabel({ language }) {
                     isSQL && classes.sqlLabel,
                     isJava && classes.javaLabel,
                     isPython && classes.pythonLabel,
-                    isSpringBoot && classes.springbootLabel
+                    isSpringBoot && classes.springbootLabel,
+                    isApollo && classes.apolloLabel
                 )
             }
             variant="overline"
