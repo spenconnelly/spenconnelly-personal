@@ -15,7 +15,7 @@ Check and fix all linting rules
 
 ## Technologies used:
 
-All components are built on top of the Material-UI React library.
+Components are built with Material Design in mind.
 
 Styling is all placed in each individual component with JSS.
 
