@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp build/index.html build/404.html",
     "test": "CI=true react-scripts test",
     "test-watch": "react-scripts test",
     "lint": "npx eslint --fix \"./src/**/*.{js,jsx}\"",
