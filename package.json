@@ -1,7 +1,7 @@
 {
   "name": "spenconnelly-personal",
-  "homepage": "http://spenconnelly.github.io/spenconnelly-personal",
-  "version": "0.1.0",
+  "homepage": "https://spenconnelly.dev/",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.14",

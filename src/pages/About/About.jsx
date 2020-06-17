@@ -18,16 +18,10 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         paddingTop: theme.spacing(10)
     },
-    imageContainer: {
-        width: '100vw',
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: theme.palette.grey[900]
-    },
     imageModifier: {
-        width: '100%',
-        maxWidth: 960,
-        aspectRatio: 0.5
+        objectFit: 'contain',
+        maxWidth: '100%',
+        height: 'auto'
     },
     descriptionContainer: {
         textAlign: 'center'
@@ -49,13 +43,11 @@ function About() {
     const classes = useStyles()
     return (
         <div className={classes.root}>
-            <div className={classes.imageContainer}>
-                <img
-                    alt="Spencer-Wideshot"
-                    className={classes.imageModifier}
-                    src={faceshot}
-                />
-            </div>
+            <img
+                alt="Spencer-Wideshot"
+                className={classes.imageModifier}
+                src={faceshot}
+            />
             <ContentContainer className={classes.contentContainer}>
                 <div className={classes.descriptionContainer}>
                     <MuiTypography variant="body1">
