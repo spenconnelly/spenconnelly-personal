@@ -59,7 +59,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div className={classes.root}>
                     <NavigationBar
                         isLight={isLight}
