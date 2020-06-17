@@ -22,6 +22,7 @@ import MuiPaper from '@material-ui/core/Paper'
 import PropTypes from 'prop-types'
 import HideOnScroll from '../HideOnScroll'
 import { withRouter } from 'react-router-dom'
+import clsx from 'clsx'
 
 import { withViewportCheck } from '../../themes'
 
@@ -145,7 +146,7 @@ function NavigationBar(props) {
                             Spencer Connelly
                         </MuiTypography>
                     </div>
-                    <div className={classes.buttonsContainer}>
+                    <div className={clsx(isDesktop && classes.buttonsContainer)}>
                         { isDesktop ? (
                             <>
                                 <MuiTabs
