@@ -2,6 +2,8 @@ Hello! This is my personal website.
 
 I will use this project as a showcase for my personal projects.
 
+Hosted at https://spenconnelly.dev
+
 ## Scripts avilable:
 
 ### npm run start
